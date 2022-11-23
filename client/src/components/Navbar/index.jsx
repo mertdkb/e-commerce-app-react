@@ -8,12 +8,12 @@ function index() {
         <nav className={styles.nav}>
             <div className={styles.left}>
                 <div className="logo">
-                    <Link to="/">LOGO</Link>
+                    <Link to="/home">LOGO</Link>
                 </div>
 
                 <ul className={styles.menu}>
                     <li>
-                        <Link to="/">Products</Link>
+                        <Link to="/products">Products</Link>
                     </li>
                 </ul>
             </div>
