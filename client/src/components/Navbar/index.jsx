@@ -7,8 +7,8 @@ function index() {
     return (
         <nav className={styles.nav}>
             <div className={styles.left}>
-                <div className="logo">
-                    <Link to="/home">LOGO</Link>
+                <div className={styles.logo}>
+                    <Link to="/home">eCommerce</Link>
                 </div>
 
                 <ul className={styles.menu}>

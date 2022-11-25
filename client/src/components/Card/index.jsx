@@ -6,7 +6,7 @@ function Card({item}) {
   return (
     <div>
       <Box borderWidth="1px" borderRadius="lg" overflow="hidden" padding="3">
-        <Link to="#/">
+        <Link to={`/product/${item._id}`}>
           <Image src={item.photos} alt='product' />
 
           <Box p="6">
