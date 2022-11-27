@@ -5,9 +5,11 @@ import './reset.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// contexts
+import { AuthProvider } from './contexts/AuthContext';
 import { ChakraProvider } from '@chakra-ui/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { ReactQueryDevtools} from 'react-query/devtools'
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,10 +25,12 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <ChakraProvider>
-        <App />
+        <AuthProvider childeren={<App />}>
+          
+        </AuthProvider>
       </ChakraProvider>
-
-      <ReactQueryDevtools initialIsOpen={false}/>
+      
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>
 );
