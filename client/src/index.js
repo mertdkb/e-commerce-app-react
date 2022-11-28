@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 
 // contexts
 import { AuthProvider } from './contexts/AuthContext';
+import { BasketProvider } from './contexts/BasketContext';
+
 import { ChakraProvider } from '@chakra-ui/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
@@ -25,8 +27,8 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <ChakraProvider>
-        <AuthProvider childeren={<App />}>
-          
+        <AuthProvider childeren={<BasketProvider childeren={<App />} />}>
+        
         </AuthProvider>
       </ChakraProvider>
       

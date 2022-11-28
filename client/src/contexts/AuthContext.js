@@ -58,7 +58,7 @@ const AuthProvider = ({childeren}) => {
         )
     }
 
-    return <AuthContext.Provider value={values} children={childeren}>{childeren}</AuthContext.Provider>
+    return <AuthContext.Provider value={values} >{childeren}</AuthContext.Provider>
 };
 
 const useAuth = () => useContext(AuthContext);
