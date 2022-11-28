@@ -7,7 +7,7 @@ import { useBasket } from '../../contexts/BasketContext'
 
 function Navbar() {
 
-    const { loggedIn, logout } = useAuth();
+    const { loggedIn, logout, user } = useAuth();
     const { items } = useBasket();
 
     console.log(loggedIn)
@@ -27,8 +27,30 @@ function Navbar() {
                     <li>
                         <Link to="/products">Products</Link>
                     </li>
+
+                    {
+                        loggedIn && (
+                            user?.role === 'admin' && (
+                                <>
+                                    <li>
+                                        <Link to="/admin/home">Home</Link>
+                                    </li>
+
+                                    <li>
+                                        <Link to="/admin/orders">Orders</Link>
+                                    </li>
+
+                                    <li>
+                                        <Link to="/admin/products">Manage products</Link>
+                                    </li>
+
+                                </>
+                            )
+                        )
+                    }
                 </ul>
             </div>
+
             <div className={styles.right}>
                 {
                     !loggedIn && (
@@ -46,15 +68,28 @@ function Navbar() {
                 {
                     loggedIn && (
                         <>
-                            <Link to="/basket">
-                                <Button colorScheme='orange' >Basket ({items.length})</Button>
-                            </Link>
+                            {
+                                user?.role === 'user' && (
+                                    <Link to="/basket">
+                                        <Button colorScheme='orange' >Basket ({items.length})</Button>
+                                    </Link>
+                                )
+                            }
+                            {
+                                user?.role === 'admin' && (
+                                    <Link to="/admin">
+                                        <Button colorScheme='gray' variant="outline" >Admin</Button>
+                                    </Link>
+                                )
+                            }
                             <Link to="/profile">
-                                <Button colorScheme='blue'>Profile</Button>
+                                <Button mr="1" colorScheme='blue'>Profile</Button>
                             </Link>
                             <Link to="/products">
                                 <Button colorScheme='gray' onClick={handleLogout}>Logout</Button>
                             </Link>
+
+
                         </>
                     )
                 }

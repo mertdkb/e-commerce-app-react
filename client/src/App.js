@@ -9,6 +9,10 @@ import Profile from './pages/Profile'
 import Basket from './pages/Basket';
 import Error404 from './pages/Error404';
 import './App.css'
+import ProtectedRoutes from './pages/Admin/ProtectedRoutes';
+import Home from './pages/Admin/Home';
+import AdminProducts from './pages/Admin/Products'
+import Orders from './pages/Admin/Orders';
 
 
 
@@ -18,13 +22,18 @@ function App() {
       <Navbar />
       <div id="content">
         <Routes>
-          <Route path='/products' element={<Products />}/>
-          <Route path="/product/:product_id" element={<ProductDetail />}/>
-          <Route path='/signin' element={<Signin />}/>
-          <Route path='/signup' element={<Signup />}/>
-          <Route path='/basket' element={<Basket />}/>
-          <Route path='/profile' element={<Profile />}/>
-          <Route path='*' element={<Error404 />}/>
+          <Route path='/products' element={<Products />} />
+          <Route path="/product/:product_id" element={<ProductDetail />} />
+          <Route path='/signin' element={<Signin />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/basket' element={<Basket />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/admin' element={<ProtectedRoutes />}>
+            <Route path='/admin/home' element={<Home />} />
+            <Route path='/admin/orders' element={<Orders />} />
+            <Route path='/admin/products' element={<AdminProducts />} />
+          </Route>
+          <Route path='*' element={<Error404 />} />
         </Routes>
       </div>
     </Router>
