@@ -26,11 +26,14 @@ const BasketProvider = ({childeren}) => {
         setItems(filtered)
     }
 
+    const emptyBasket = () => setItems([]);
+
     const values = {
         items,
         setItems,
         addToBasket,
-        removeFromBasket
+        removeFromBasket,
+        emptyBasket
     };
 
     return <BasketContext.Provider value={values} >{childeren}</BasketContext.Provider>
