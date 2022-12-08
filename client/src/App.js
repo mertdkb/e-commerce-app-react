@@ -13,6 +13,8 @@ import ProtectedRoutes from './pages/Admin/ProtectedRoutes';
 import Home from './pages/Admin/Home';
 import AdminProducts from './pages/Admin/Products'
 import Orders from './pages/Admin/Orders';
+import AdminProductDetail from './pages/Admin/ProductDetail'
+import NewProduct from './pages/Admin/Products/newProduct';
 
 
 
@@ -32,6 +34,8 @@ function App() {
             <Route path='/admin/home' element={<Home />} />
             <Route path='/admin/orders' element={<Orders />} />
             <Route path='/admin/products' element={<AdminProducts />} />
+            <Route path='/admin/products/:product_id' element={<AdminProductDetail />} />
+            <Route path='/admin/products/new/:product_id' element={<NewProduct />} />
           </Route>
           <Route path='*' element={<Error404 />} />
         </Routes>
