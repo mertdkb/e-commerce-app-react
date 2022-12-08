@@ -44,6 +44,10 @@ function Navbar() {
                                         <Link to="/admin/products">Manage products</Link>
                                     </li>
 
+                                    <li>
+                                        <Link to="/admin/products/new">Add new product</Link>
+                                    </li>
+
                                 </>
                             )
                         )

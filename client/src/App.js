@@ -35,7 +35,7 @@ function App() {
             <Route path='/admin/orders' element={<Orders />} />
             <Route path='/admin/products' element={<AdminProducts />} />
             <Route path='/admin/products/:product_id' element={<AdminProductDetail />} />
-            <Route path='/admin/products/new/:product_id' element={<NewProduct />} />
+            <Route path='/admin/products/new' element={<NewProduct />} />
           </Route>
           <Route path='*' element={<Error404 />} />
         </Routes>
